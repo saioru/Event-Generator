@@ -39,7 +39,7 @@ async def run(request: RequestModel):
             detail="Request input shan't not be empty"
         )
     try:
-        _output = GRAPH.invoke({'request': request}).output
+        _output = GRAPH.invoke({'request': request})['output']
         return ResponseModel(output=_output)
     except openai.BadRequestError as err:
         LOGGER.error("OpenAI API error: %s", err)
