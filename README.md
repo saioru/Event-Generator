@@ -40,18 +40,26 @@ flowchart LR
     🔴 End: The process concludes with either the generated response or rejection message.
 
 ## ⭕ Sequence
-<center>
-
 Sequence diagram shows *two* sets of plausible requests as described below:
 
-| Request Type  | Example                            |
-|:-------------:|:----------------------------------:|
-| Valid         | Birthday Party Venues for children |
-| Invalid       | Hitman for Hire                    |
+ ```mermaid
+ sequenceDiagram
+    Client->>Server: "Birthday Party Venues for children"
+    Server-->>Azure: `Validate Intention`
+    Azure-->>Server: ( Response )
+    Server-->>Server: Route
+    Server-->>Azure: `Context Generation`
+    Azure-->>Server: ( Response )
+    Server->>Client: [{ JSON 1, JSON 2, ... }]
 
-</center>
-
-![alt text](/docs/4_flow_sequence.png)
+    Client->>Server: "Hitman for Hire"
+    Server-->>Azure: `Validate Intention`
+    Azure-->>Server: ( Response )
+    Server-->>Server: Route
+    Server-->>Azure: `Rejection Generation`
+    Azure-->>Server: ( Response )
+    Server->>Client: "This response is not applicable due to ..."
+ ```
 
 ## 📚 Challenges & Design
 1. *Intention Analysis*:
