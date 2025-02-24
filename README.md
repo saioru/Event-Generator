@@ -7,7 +7,7 @@ This `demo` application interprets a variety of natural language queries to iden
 
 - `Dynamic Venue Search` -- Supports diverse queries across different business related domains including event venues, services, and more.
 
-- `Powered by LangChain` -- Leverages state-of-the-art Large Langauge Models (LLM) through flexi integration framework, LangChain, for understanding and processing of request queries and generating relevant results.
+- `Powered by LangChain` -- Leverages state-of-the-art Large Langauge Models (LLM) through flexi integration framework, [LangChain](https://python.langchain.com/docs/introduction/), for understanding and processing of request queries and generating relevant results.
 
 - `Highly Customizable` -- Easily extendable to accommodate additional filters and data sources tailored to specific industries or user needs.
 
@@ -62,6 +62,8 @@ Sequence diagram shows *two* sets of plausible requests as described below:
  ```
 
 ## 📚 Challenges & Design
+![alt text](/docs/2_tech_stack.png)
+
 1. *Intention Analysis*:
     - (Challenge) Accurately interpreting user intent, especially with ambiguous or unstructured queries.
     - (Design) Leveraging Large Langauge Models (LLM) on Natural Language  queries to handle diverse user inputs, including variations in phrasing and context.
@@ -80,7 +82,7 @@ Sequence diagram shows *two* sets of plausible requests as described below:
 
 5. *Scalability*:
     - (Challenge) Ensuring the system to be operated as standalone module and dynamical in prompt design to fit or alterate in instructive format.
-    - (Design) Designing for standalone scalability through RESTful framework, paired with LangGraph supported node-based framework for reusability.
+    - (Design) Designing for standalone with [Docker](https://docs.docker.com/get-started/) scalability through RESTful [FastAPI](https://fastapi.tiangolo.com/) framework, paired with [LangGraph](https://langchain-ai.github.io/langgraph/) supported node-based framework for reusability.
 
 ## 📝 Setup
 - To initialize this application, follow these `steps`:
