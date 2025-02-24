@@ -121,7 +121,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"request\": \"Fusion Peranakan Cuisine places\"}",
+					"raw": "{\"request\": \"food venues by the beach\"}",
 					"options": {
 						"raw": {
 							"language": "json"
