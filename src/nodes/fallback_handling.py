@@ -9,6 +9,8 @@ class RejectParser(BaseModel):
     """Custom Output Parser for Request Rejection"""
     output: str = Field(description="Short descriptive rejection of request")
 
+PROMPT = "Reject request based on intent.\nIntent: {intent}"
+
 def fallback_generation(state: State) -> dict:
     """Rejection Node to reject the processing of the received request.
 
@@ -19,7 +21,7 @@ def fallback_generation(state: State) -> dict:
         dict: Dictionary key-value update for State `output`.
     """
     _response = (
-        ChatPromptTemplate.from_template("Reject request based on intent.\nIntent: {intent}")
+        ChatPromptTemplate.from_template(PROMPT)
         | LLM.with_structured_output(RejectParser)
     ).invoke({'intent': state['intent']})
     return {'output': _response.output}

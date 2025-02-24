@@ -82,6 +82,8 @@ class ContextParser(BaseModel):
         self.output = [o.parse() for o in self.output]
         return [o.model_dump(exclude_unset=True) for o in self.output]
 
+PROMPT = "As a tour and event guide, provide a list of relevant context.\nRequest: {intent}"
+
 def context_generation(state: State) -> bool:
     """Context Generation Node to create context based on the given request.
 
@@ -92,8 +94,7 @@ def context_generation(state: State) -> bool:
         dict: Dictionary key-value update for State `output`.
     """
     _response = (
-        ChatPromptTemplate.from_template( \
-            "As a tour and event guide, provide a list of relevant context. Request: {intent}")
+        ChatPromptTemplate.from_template(PROMPT)
         | LLM.with_structured_output(ContextParser)
     ).invoke({'intent': state['intent']})
 

@@ -19,6 +19,15 @@ class RelevancyParser(BaseModel):
     validity: str = Field(description="Either 'Valid' or 'Invalid'")
     intent: str = Field(description="Short descriptive intention")
 
+PROMPT = \
+"""
+You are a system designed to validate user inputs.\n
+Accept inputs that are clear, specific, and pertain to business categories,
+such as types of services, venues, or cuisines.\n
+Reject inputs that are ambiguous, nonsensical, or unrelated to business categories.\n
+Input: {request}
+"""
+
 def relevancy_node(state: State) -> dict:
     """Relevancy Node to validate the intention of the received request.
 
@@ -29,8 +38,7 @@ def relevancy_node(state: State) -> dict:
         dict: Dictionary key-value update for State `validity` and `intent`.
     """
     _response = (
-        ChatPromptTemplate.from_template( \
-            "Validate only locale, event, venue or service related requests.\nRequest: '{request}")
+        ChatPromptTemplate.from_template(PROMPT)
         | LLM.with_structured_output(RelevancyParser)
     ).invoke({'request': state['request']})
 

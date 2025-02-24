@@ -43,10 +43,7 @@ async def run(request: RequestModel):
         return ResponseModel(output=_output)
     except openai.BadRequestError as err:
         LOGGER.error("OpenAI API error: %s", err)
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Internal server error"
-        ) from err
+        return ResponseModel(output="This request violates OpenAI content policy")
     except Exception as e:
         LOGGER.error("Unexpected error: %s", e)
         raise HTTPException(
