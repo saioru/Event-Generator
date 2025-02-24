@@ -105,7 +105,7 @@ cp .env.sample .env
 OPENAI_API_VERSION= # NOTE: (2024-08-01-preview and later)
 AZURE_OPENAI_ENDPOINT=
 AZURE_OPENAI_API_KEY=
-LLM_MODEL= # Model `Deployment` Name as stated in Azure portal
+LLM_MODEL= # Model `Deployment` Name as stated in Azure portal (`gpt-4o-mini` was used for this development)
 
 # Run docker build and run API in container service (Make sure port `8000` is not occupied)
 docker build -t demo-image . && docker run -d -p 8000:8000 demo-app
