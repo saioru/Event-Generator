@@ -109,7 +109,7 @@ LLM_MODEL= # Model `Deployment` Name as stated in Azure portal
 docker build -t demo-image . && docker run -d -p 8000:8000 demo-app
 ```
 
-- To test this application, *import* the provided `test_scripts.postman_collection` into **Postman** and execute test scripts. 
+- To test this application, *import* the `test_scripts.postman_collection` into **Postman** and execute test scripts. 
 
 ## ⭕ Remarks
 > Each inference cycle for this application is expected to cost more than 1000 in total tokens, which may vary in speed based on the [Azure's subscription tiers](https://learn.microsoft.com/en-us/azure/ai-services/openai/quotas-limits#other-offer-types).
