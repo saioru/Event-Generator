@@ -2,7 +2,7 @@
 This `demo` application interprets a variety of natural language queries to identify user needs and returns a list of appropriate venues, as a conceptual tool for event planners, businesses, and individuals seeking venues that meet specific criteria.
     
 
-## ⭕ Features
+## 🚩 Features
 - `Natural Language Query Processing` -- Extract intuitive queries like "Muslim Friendly Salon" or "Fusion Peranakan Cuisine places" as high-level  intentions for process.
 
 - `Dynamic Venue Search` -- Supports diverse queries across different business related domains including event venues, services, and more.
@@ -11,7 +11,7 @@ This `demo` application interprets a variety of natural language queries to iden
 
 - `Highly Customizable` -- Easily extendable to accommodate additional filters and data sources tailored to specific industries or user needs.
 
-## ⭕ Flowchart
+## 🚥  Flowchart
 ```mermaid
 flowchart LR
     A(Start) --> B[Intention Analysis]
@@ -39,7 +39,7 @@ flowchart LR
 
     🔴 End: The process concludes with either the generated response or rejection message.
 
-## ⭕ Sequence
+## 🚧 Sequence
 Sequence diagram shows *two* sets of plausible requests as described below:
 
  ```mermaid
@@ -83,7 +83,7 @@ Sequence diagram shows *two* sets of plausible requests as described below:
     - (Design) Designing for standalone scalability through RESTful framework, paired with LangGraph supported node-based framework for reusability.
 
 ## 📝 Setup
-To initialize this application, follow these `steps`:
+- To initialize this application, follow these `steps`:
 ```bash
 # Open a Terminal (Command Prompt or PowerShell for Windows, Terminal for macOS or Linux)
 
@@ -109,6 +109,7 @@ LLM_MODEL= # Model `Deployment` Name as stated in Azure portal
 docker build -t demo-image . && docker run -d -p 8000:8000 demo-app
 ```
 
-To test this application, import the provided `test_scripts.postman_collection` into Postman and execute test scripts. 
+- To test this application, *import* the provided `test_scripts.postman_collection` into **Postman** and execute test scripts. 
 
+## ⭕ Remarks
 > Each inference cycle for this application is expected to cost more than 1000 in total tokens, which may vary in speed based on the [Azure's subscription tiers](https://learn.microsoft.com/en-us/azure/ai-services/openai/quotas-limits#other-offer-types).
